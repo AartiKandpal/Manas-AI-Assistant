@@ -1,0 +1,24 @@
+BACKGROUND = "#F8F6F2"
+
+SIDEBAR = "#F4F1EA"
+
+CARD = "#DDF7D8"
+
+PRIMARY = "#6BCB77"
+
+HOVER = "#CBEFC5"
+
+TEXT = "#1E293B"
+
+SUBTEXT = "#64748B"
+
+BORDER = "#CDE8C8"
+
+FONT = "Segoe UI"
+
+TITLE = (FONT, 30, "bold")
+HEADING = (FONT, 22, "bold")
+BODY = (FONT, 15)
+SMALL = (FONT, 13)
+
+RADIUS = 22
