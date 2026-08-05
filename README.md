@@ -103,24 +103,7 @@ python src/gui_main.py
 - Speech Recognition
 - Text-to-Speech
 - SQLite
-- Vosk
 - PyAudio
-
----
-
-## 📸 Screenshots
-
-Add screenshots here.
-
-Example:
-
-```
-assets/
-    screenshots/
-        home.png
-        chat.png
-        voice.png
-```
 
 ---
 
@@ -131,11 +114,6 @@ assets/
 - [x] Memory System
 - [x] Tool Calling
 - [x] Local LLM Integration
-- [ ] Vision Support
-- [ ] Plugin System
-- [ ] Calendar Integration
-- [ ] RAG over PDFs
-- [ ] Cross-platform Support
 
 ---
 
@@ -147,12 +125,6 @@ Contributions are welcome!
 2. Create a feature branch
 3. Commit your changes
 4. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
 
 ---
 
