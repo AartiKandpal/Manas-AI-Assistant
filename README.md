@@ -43,7 +43,89 @@ Manas-AI-Assistant/
 └── README.md
 ```
 
+
 ---
+
+
+# 🤖 Agent Architecture
+
+The Manas AI Assistant follows a modular, agent-oriented architecture where each component has a dedicated responsibility. Instead of directly generating responses, the assistant first understands the user's intent, plans an execution strategy, invokes tools when necessary, retrieves memory, and finally generates a natural response.
+
+```text
+                        ┌─────────────────────┐
+                        │      User Input     │
+                        │ (Voice / Text GUI)  │
+                        └──────────┬──────────┘
+                                   │
+                                   ▼
+                     ┌────────────────────────┐
+                     │ Conversation Manager   │
+                     └──────────┬─────────────┘
+                                │
+                                ▼
+                     ┌────────────────────────┐
+                     │        Planner         │
+                     │ Intent Understanding   │
+                     └──────────┬─────────────┘
+                                │
+                                ▼
+                     ┌────────────────────────┐
+                     │    Command Router      │
+                     └───────┬─────────┬──────┘
+                             │         │
+                  Tool Needed?│         │Direct LLM Response
+                             │         │
+                  Yes         │         ▼
+                             ▼   ┌──────────────┐
+                  ┌─────────────────────────────┐
+                  │       Tool Manager          │
+                  └───────┬─────────┬───────────┘
+                          │         │
+          ┌───────────────┘         └────────────────┐
+          ▼                                          ▼
+ ┌────────────────┐                        ┌─────────────────┐
+ │ Browser Tools  │                        │ Memory Manager  │
+ └────────────────┘                        └─────────────────┘
+          │                                          │
+          └──────────────────┬───────────────────────┘
+                             ▼
+                  ┌────────────────────────┐
+                  │      LLM Engine        │
+                  │ (Ollama / Local Model) │
+                  └──────────┬─────────────┘
+                             │
+                             ▼
+                  ┌────────────────────────┐
+                  │      Final Response    │
+                  └──────────┬─────────────┘
+                             │
+                             ▼
+                  ┌────────────────────────┐
+                  │ Text-to-Speech Engine  │
+                  └──────────┬─────────────┘
+                             │
+                             ▼
+                         🔊 Speaker
+```
+
+
+---
+
+### Components
+
+- **Conversation Manager** – Maintains conversation state and manages the interaction lifecycle.
+- **Planner** – Analyzes user requests and determines the execution strategy.
+- **Command Router** – Decides whether the request requires direct LLM reasoning or external tool execution.
+- **Tool Manager** – Executes registered tools such as browser, file, memory, or system utilities.
+- **Memory Manager** – Stores and retrieves conversational context for more coherent responses.
+- **LLM Engine** – Generates context-aware responses using a local Ollama model.
+- **Text-to-Speech Engine** – Converts the final response into natural speech for voice interaction.
+
+This modular architecture allows Manas AI Assistant to remain scalable, maintainable, and easily extensible by adding new tools or capabilities without modifying the core agent workflow.
+
+
+---
+
 
 ## 🚀 Installation
 
